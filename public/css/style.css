@@ -251,3 +251,121 @@ nav ul li a{
     border-radius:8px;
     cursor:pointer;
 }
+.cart-sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    right:-400px;
+
+    width:350px;
+
+    height:100%;
+
+    background:white;
+
+    box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+
+    transition:0.4s;
+
+    padding:25px;
+
+    z-index:1000;
+
+}
+
+.cart-sidebar.active{
+
+    right:0;
+
+}
+
+.cart-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.cart-header h2{
+
+    color:#8B0000;
+
+}
+
+.cart-header button{
+
+    background:none;
+
+    border:none;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+}
+.cart-footer{
+
+    margin-top:30px;
+
+    border-top:1px solid #ddd;
+
+    padding-top:20px;
+
+}
+
+.checkout-btn{
+
+    width:100%;
+
+    margin-top:15px;
+
+    background:#8B0000;
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.cart-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.remove-btn{
+
+    background:red;
+
+    color:white;
+
+    border:none;
+
+    padding:6px 10px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+}

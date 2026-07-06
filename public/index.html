@@ -35,10 +35,9 @@
 
     </ul>
 
-    <button class="cart-btn">
-        🛒 Cart
-    </button>
-
+<button class="cart-btn" id="cartButton">
+    🛒 Cart (0)
+</button>
 </nav>
 
 <section class="hero">
@@ -83,40 +82,69 @@
             <div class="food-image">🍕</div>
             <h3>Chicken Pizza</h3>
             <p class="price">Rs. 750</p>
-            <button>Order Now</button>
+<button class="order-btn" data-name="Chicken Pizza" data-price="750">
+    Order Now
+</button>
         </div>
 
         <div class="food-card">
             <div class="food-image">🥟</div>
             <h3>Steam Momo</h3>
             <p class="price">Rs. 180</p>
-            <button>Order Now</button>
+<button class="order-btn" data-name="Steam Momo" data-price="180">
+    Order Now
+</button>
         </div>
 
         <div class="food-card">
             <div class="food-image">🍗</div>
             <h3>Chicken Biryani</h3>
             <p class="price">Rs. 420</p>
-            <button>Order Now</button>
-        </div>
+<button class="order-btn" data-name="Chicken Biryani" data-price="420">
+    Order Now
+</button>        </div>
        <div class="food-card">
        <div class="food-image">🍔</div>
        <h3> Cheese Burger </h3>
       <p class="price">Rs. 350</p>
-      <button>Order Now</button>
+<button class="order-btn" data-name="Cheese Burger" data-price="350">
+    Order Now
+</button>
+
     </div>
 <div class="food-card">
        <div class="food-image">🍜</div> 
        <h3> Chicken Chowmein </h3>
       <p class="price">Rs. 250</p>
-      <button>Order Now</button>
+<button class="order-btn" data-name="Chicken Chowmein" data-price="250">
+    Order Now
+</button>
 </div>
 
     </div>
 
 </section>
 
-<script src="js/script.js"></script>
+<div id="cartSidebar" class="cart-sidebar">
+
+<div class="cart-body" id="cartBody"></div>
+
+<div class="cart-footer">
+
+    <h3 id="totalPrice">Total: Rs. 0</h3>
+
+    <button class="checkout-btn">
+        Checkout
+    </button>
+
+</div>
+    <div class="cart-header">
+        <h2>Shopping Cart</h2>
+        <button id="closeCart">✖</button>
+    </div>
+
+
+</div>
     <script src="js/script.js"></script>
 
 </body>
