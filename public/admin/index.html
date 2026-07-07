@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Palpali Hotel Admin Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ==========================
+            SIDEBAR
+    =========================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>🍽 Palpali Hotel</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="active">
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="foods.html">
+
+                    <i class="fa-solid fa-utensils"></i>
+
+                    Foods
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="orders.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Orders
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="reservations.html">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Reservations
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Customers
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    Reviews
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ==========================
+            MAIN
+    =========================== -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header>
+
+            <h1>
+
+                Dashboard
+
+            </h1>
+
+            <p>
+
+                Welcome Admin 👋
+
+            </p>
+
+        </header>
+
+        <!-- CARDS -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h2 id="totalOrders">
+
+                    0
+
+                </h2>
+
+                <p>
+
+                    Total Orders
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+                <h2 id="totalRevenue">
+
+                    Rs.0
+
+                </h2>
+
+                <p>
+
+                    Revenue
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                <h2 id="totalReservations">
+
+                    0
+
+                </h2>
+
+                <p>
+
+                    Reservations
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                <h2 id="totalFoods">
+
+                    0
+
+                </h2>
+
+                <p>
+
+                    Foods
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- RECENT ORDERS -->
+
+        <section class="table-section">
+
+            <div class="section-header">
+
+                <h2>
+
+                    Recent Orders
+
+                </h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Customer</th>
+
+                        <th>Items</th>
+
+                        <th>Total</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="ordersTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- RECENT RESERVATIONS -->
+
+        <section class="table-section">
+
+            <div class="section-header">
+
+                <h2>
+
+                    Recent Reservations
+
+                </h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Phone</th>
+
+                        <th>Date</th>
+
+                        <th>Time</th>
+
+                        <th>Guests</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="reservationTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

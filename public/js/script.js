@@ -4,6 +4,77 @@
 // =======================================
 
 // Cart Data
+async function loadFoods(){
+
+    const response = await fetch("/api/foods");
+
+    const foods = await response.json();
+
+    const container = document.getElementById("foodContainer");
+
+    if(!container){
+
+        return;
+
+    }
+
+    container.innerHTML = "";
+
+    foods.forEach(food=>{
+
+        container.innerHTML += `
+
+        <div class="food-card">
+
+            <div class="food-image">
+
+                🍽️
+
+            </div>
+
+            <h3>
+
+                ${food.food_name}
+
+            </h3>
+
+            <p>
+
+                ${food.description}
+
+            </p>
+
+            <div class="price">
+
+                Rs. ${food.price}
+
+            </div>
+
+            <button
+
+                class="order-btn"
+
+                data-name="${food.food_name}"
+
+                data-price="${food.price}">
+
+                Order Now
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+registerOrderButtons();
+
+updateCartButton();
+
+renderCart();
+
+}
 let cartItems = [];
 
 // Total Quantity
@@ -16,49 +87,57 @@ const closeCart = document.getElementById("closeCart");
 const cartBody = document.getElementById("cartBody");
 const totalPrice = document.getElementById("totalPrice");
 
-const orderButtons = document.querySelectorAll(".order-btn");
-const checkoutButton = document.querySelector(".checkout-btn");
-// =======================================
-// ADD TO CART
-// =======================================
+function registerOrderButtons(){
 
-orderButtons.forEach(button => {
+    const orderButtons=document.querySelectorAll(".order-btn");
 
-    button.addEventListener("click", () => {
+    orderButtons.forEach(button=>{
 
-        const itemName = button.dataset.name;
+        button.onclick=()=>{
 
-        const itemPrice = Number(button.dataset.price);
+            const itemName=button.dataset.name;
 
-        const existingItem = cartItems.find(item => item.name === itemName);
+            const itemPrice=Number(button.dataset.price);
 
-        if(existingItem){
+            const existingItem=cartItems.find(
 
-            existingItem.quantity++;
+                item=>item.name===itemName
 
-        }else{
+            );
 
-            cartItems.push({
+            if(existingItem){
 
-                name:itemName,
+                existingItem.quantity++;
 
-                price:itemPrice,
+            }
 
-                quantity:1
+            else{
 
-            });
+                cartItems.push({
 
-        }
+                    name:itemName,
 
-        cartCount++;
+                    price:itemPrice,
 
-        updateCartButton();
+                    quantity:1
 
-        renderCart();
+                });
+
+            }
+
+            cartCount++;
+
+            updateCartButton();
+
+            renderCart();
+
+            saveCart();
+
+        };
 
     });
 
-});
+}
 
 // =======================================
 // UPDATE CART BUTTON
@@ -288,7 +367,7 @@ loadCart();
 // =======================================
 // CHECKOUT
 // =======================================
-
+const checkoutButton = document.querySelector(".checkout-btn");
 checkoutButton.addEventListener("click", async () => {
 alert("Order Created ");
     if (cartItems.length === 0) {
@@ -423,3 +502,4 @@ reservationForm.addEventListener("submit", async (e) => {
     }
 
 });
+loadFoods();

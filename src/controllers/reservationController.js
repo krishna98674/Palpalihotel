@@ -1,29 +1,73 @@
 const reservationModel = require("../models/reservationModel");
 
-function addReservation(req, res) {
+// =======================================
+// GET ALL RESERVATIONS
+// =======================================
 
-    reservationModel.createReservation(req.body, (err, result) => {
+exports.getReservations = (req, res) => {
+
+    reservationModel.getReservations((err, result) => {
 
         if (err) {
 
-            console.error(err);
+            return res.status(500).json(err);
 
-            return res.status(500).json({
-                success: false,
-                message: "Database Error"
-            });
+        }
+
+        res.json(result);
+
+    });
+
+};
+
+// =======================================
+// CREATE RESERVATION
+// =======================================
+
+exports.createReservation = (req, res) => {
+
+    reservationModel.createReservation(req.body, (err) => {
+
+        if (err) {
+
+            return res.status(500).json(err);
 
         }
 
         res.json({
+
             success: true,
+
             message: "Reservation Added Successfully"
+
         });
 
     });
 
-}
+};
 
-module.exports = {
-    addReservation
+// =======================================
+// DELETE RESERVATION
+// =======================================
+
+exports.deleteReservation = (req, res) => {
+
+    reservationModel.deleteReservation(req.params.id, (err) => {
+
+        if (err) {
+
+            return res.status(500).json(err);
+
+        }
+
+        res.json({
+
+            success: true,
+
+            message: "Reservation Deleted Successfully"
+
+        });
+
+    });
+
 };

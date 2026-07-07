@@ -4,6 +4,7 @@ const express = require("express");
 const path = require("path");
 
 require("./database/db");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const reservationRoutes = require("./routes/reservationRoutes");
 
@@ -12,6 +13,12 @@ const orderRoutes = require("./routes/orderRoutes");
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+ 
+const foodRoutes=require("./routes/foodRoutes");
+
+app.use("/api/dashboard", dashboardRoutes);
+
+app.use("/api/foods",foodRoutes);
 
 app.use(express.json());
 

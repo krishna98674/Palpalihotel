@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Food Management</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>🍽 Palpali Hotel</h2>
+
+</div>
+
+<ul>
+
+<li>
+
+<a href="index.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="foods.html">
+
+<i class="fa-solid fa-utensils"></i>
+
+Foods
+
+</a>
+
+</li>
+
+<li>
+
+<a href="orders.html">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Orders
+
+</a>
+
+</li>
+
+<li>
+
+<a href="reservations.html">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+Reservations
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<main class="main">
+
+<header>
+
+<h1>Food Management</h1>
+
+<p>Add and Manage Foods</p>
+
+</header>
+
+<form id="foodForm">
+
+<input
+type="text"
+id="food_name"
+placeholder="Food Name"
+required>
+
+<textarea
+id="description"
+placeholder="Description"
+required></textarea>
+
+<input
+type="number"
+id="price"
+placeholder="Price"
+required>
+
+<input
+type="text"
+id="category"
+placeholder="Category"
+required>
+
+<input
+type="text"
+id="image"
+placeholder="Image Name (pizza.jpg)"
+required>
+
+<button type="submit">
+
+Add Food
+
+</button>
+
+</form>
+
+<div class="table-section">
+
+<div class="section-header">
+
+<h2>
+
+Food List
+
+</h2>
+
+<input
+type="text"
+id="searchFood"
+placeholder="Search Food...">
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Category</th>
+
+<th>Price</th>
+
+<th>Image</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="foodTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="foods.js"></script>
+
+</body>
+
+</html>

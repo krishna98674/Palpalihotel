@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Reservation Management
+
+</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ==========================
+        SIDEBAR
+========================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<h2>
+
+🍽 Palpali Hotel
+
+</h2>
+
+</div>
+
+<ul>
+
+<li>
+
+<a href="index.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="foods.html">
+
+<i class="fa-solid fa-utensils"></i>
+
+Foods
+
+</a>
+
+</li>
+
+<li>
+
+<a href="orders.html">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Orders
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="reservations.html">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+Reservations
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#">
+
+<i class="fa-solid fa-users"></i>
+
+Customers
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#">
+
+<i class="fa-solid fa-star"></i>
+
+Reviews
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- ==========================
+        MAIN
+========================== -->
+
+<main class="main">
+
+<header>
+
+<h1>
+
+Reservations
+
+</h1>
+
+<p>
+
+Manage Customer Reservations
+
+</p>
+
+</header>
+
+<div class="table-section">
+
+<div class="section-header">
+
+<h2>
+
+Reservation List
+
+</h2>
+
+<input
+
+type="text"
+
+id="searchReservation"
+
+placeholder="Search Reservation..."
+
+>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Phone</th>
+
+<th>Date</th>
+
+<th>Time</th>
+
+<th>Guests</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="reservationTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="reservations.js"></script>
+
+</body>
+
+</html>
