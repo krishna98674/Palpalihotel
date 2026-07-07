@@ -1,15 +1,64 @@
+/* ==========================================
+            GLOBAL SETTINGS
+========================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    background:#fff8f0;
+html{
+    scroll-behavior:smooth;
 }
 
-nav{
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#fdfaf6;
+
+    color:#333;
+
+    line-height:1.6;
+
+}
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+section{
+
+    padding:90px 80px;
+
+}
+
+/* ==========================================
+                NAVBAR
+========================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:80px;
 
     display:flex;
 
@@ -17,9 +66,13 @@ nav{
 
     align-items:center;
 
-    padding:20px 60px;
+    padding:0 60px;
 
     background:#8B0000;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+    z-index:1000;
 
 }
 
@@ -29,31 +82,33 @@ nav{
 
     font-size:30px;
 
-    font-weight:bold;
+    font-weight:700;
 
 }
 
-nav ul{
+.nav-links{
 
     display:flex;
 
     list-style:none;
 
-}
-
-nav ul li{
-
-    margin:0 20px;
+    gap:30px;
 
 }
 
-nav ul li a{
-
-    text-decoration:none;
+.nav-links a{
 
     color:white;
 
     font-size:18px;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:gold;
 
 }
 
@@ -65,59 +120,96 @@ nav ul li a{
 
     border:none;
 
-    padding:12px 22px;
+    padding:12px 24px;
 
-    border-radius:8px;
+    border-radius:10px;
 
     cursor:pointer;
 
-    font-size:16px;
+    font-size:17px;
+
+    transition:.3s;
 
 }
 
+.cart-btn:hover{
+
+    background:#ff9800;
+
+    transform:scale(1.05);
+
+}
+
+/* ==========================================
+                HERO
+========================================== */
+
 .hero{
+
+    margin-top:80px;
+
+    height:90vh;
+
+    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url("../images/hero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     text-align:center;
 
-    padding:120px 30px;
+    color:white;
+
+}
+
+.hero-content{
+
+    max-width:800px;
 
 }
 
 .hero h1{
 
-    font-size:50px;
+    font-size:60px;
 
-    color:#8B0000;
+    margin-bottom:20px;
 
 }
 
 .hero p{
 
-    margin-top:25px;
+    font-size:24px;
 
-    font-size:22px;
-
-    color:#555;
+    margin-bottom:35px;
 
 }
 
-.buttons{
+.hero-buttons{
 
-    margin-top:40px;
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
 
 }
 
-.buttons button{
+.primary-btn{
 
-    padding:15px 30px;
-
-    margin:10px;
+    padding:16px 35px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:8px;
 
-    background:#8B0000;
+    background:#ff9800;
 
     color:white;
 
@@ -125,40 +217,83 @@ nav ul li a{
 
     cursor:pointer;
 
-}
-.categories{
-
-    padding:80px 60px;
-
-    text-align:center;
+    transition:.3s;
 
 }
 
-.categories h2{
+.primary-btn:hover{
 
-    font-size:40px;
+    transform:translateY(-5px);
+
+}
+
+.secondary-btn{
+
+    padding:16px 35px;
+
+    border:2px solid white;
+
+    border-radius:8px;
+
+    background:transparent;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+    background:white;
 
     color:#8B0000;
 
 }
 
-.categories p{
+/* ==========================================
+             SECTION TITLE
+========================================== */
 
-    margin:20px 0 50px;
+section h2{
+
+    font-size:42px;
+
+    color:#8B0000;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+section>p{
+
+    text-align:center;
 
     color:#666;
+
+    margin-bottom:50px;
 
     font-size:18px;
 
 }
 
+/* ==========================================
+            CATEGORIES
+========================================== */
+
 .category-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
-    gap:25px;
+    gap:30px;
 
 }
 
@@ -166,15 +301,15 @@ nav ul li a{
 
     background:white;
 
-    padding:40px 20px;
+    padding:40px;
 
     border-radius:15px;
 
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
 
-    transition:0.3s;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
 
-    cursor:pointer;
+    transition:.3s;
 
 }
 
@@ -186,7 +321,7 @@ nav ul li a{
 
 .icon{
 
-    font-size:50px;
+    font-size:60px;
 
     margin-bottom:20px;
 
@@ -197,81 +332,401 @@ nav ul li a{
     color:#8B0000;
 
 }
+
+/* ==========================================
+            POPULAR DISHES
+========================================== */
+
 .popular{
-    padding:80px 60px;
-    background:#fdf5ef;
-    text-align:center;
-}
 
-.popular h2{
-    font-size:40px;
-    color:#8B0000;
-}
+    background:#fff5ec;
 
-.popular p{
-    margin:20px 0 50px;
-    color:#666;
 }
 
 .popular-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
     gap:30px;
+
 }
 
 .food-card{
+
     background:white;
-    padding:30px;
+
     border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+
+    transition:.3s;
+
 }
 
 .food-card:hover{
-    transform:translateY(-8px);
+
+    transform:translateY(-10px);
+
 }
 
-.food-image{
-    font-size:70px;
-    margin-bottom:20px;
+.food-card img{
+
+    height:220px;
+
+    object-fit:cover;
+
 }
 
-.price{
+.food-card h3{
+
+    padding:20px 20px 10px;
+
     color:#8B0000;
-    font-size:22px;
-    font-weight:bold;
-    margin:15px 0;
+
 }
 
-.food-card button{
-    background:#8B0000;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:8px;
-    cursor:pointer;
+.food-card p{
+
+    padding:0 20px;
+
+    color:#555;
+
 }
+
+.food-card h4{
+
+    padding:15px 20px;
+
+    color:#ff6600;
+
+    font-size:22px;
+
+}
+
+.order-btn{
+
+    width:calc(100% - 40px);
+
+    margin:0 20px 20px;
+
+    padding:14px;
+
+    background:#8B0000;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.order-btn:hover{
+
+    background:#a50000;
+
+}
+/* ==========================================
+              TODAY'S OFFERS
+========================================== */
+
+.offers{
+
+    background:#fff;
+
+}
+
+.offer-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.offer-card{
+
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+
+    color:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+.offer-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.offer-card h3{
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.offer-card p{
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+.offer-card h4{
+
+    font-size:24px;
+
+}
+
+/* ==========================================
+            WHY CHOOSE US
+========================================== */
+
+.why-us{
+
+    background:#fdf6ef;
+
+}
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+.why-card{
+
+    background:white;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.1);
+
+    transition:.3s;
+
+}
+
+.why-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.why-icon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.why-card h3{
+
+    color:#8B0000;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================================
+             RESERVATION
+========================================== */
+
+.reservation{
+
+    background:#fff;
+
+}
+
+.reservation-form{
+
+    max-width:800px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.reservation-form input{
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+.reservation-form button{
+
+    grid-column:1/3;
+
+    padding:16px;
+
+    border:none;
+
+    background:#8B0000;
+
+    color:white;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.reservation-form button:hover{
+
+    background:#a50000;
+
+}
+
+/* ==========================================
+             REVIEWS
+========================================== */
+
+.reviews{
+
+    background:#fff5ec;
+
+}
+
+.review-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.review-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+
+    transition:.3s;
+
+}
+
+.review-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.review-card h3{
+
+    color:gold;
+
+    margin-bottom:15px;
+
+}
+
+.review-card h4{
+
+    margin-top:20px;
+
+    color:#8B0000;
+
+}
+
+/* ==========================================
+             CONTACT
+========================================== */
+
+.contact{
+
+    background:white;
+
+}
+
+.contact p{
+
+    font-size:20px;
+
+    margin:15px 0;
+
+}
+
+/* ==========================================
+              CART SIDEBAR
+========================================== */
+
 .cart-sidebar{
 
     position:fixed;
 
     top:0;
 
-    right:-400px;
+    right:-420px;
 
-    width:350px;
+    width:400px;
 
-    height:100%;
+    height:100vh;
 
     background:white;
 
-    box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+    box-shadow:-5px 0 15px rgba(0,0,0,.2);
 
-    transition:0.4s;
+    transition:.4s;
 
-    padding:25px;
+    display:flex;
 
-    z-index:1000;
+    flex-direction:column;
+
+    z-index:2000;
 
 }
 
@@ -289,56 +744,35 @@ nav ul li a{
 
     align-items:center;
 
-    margin-bottom:30px;
-
-}
-
-.cart-header h2{
-
-    color:#8B0000;
-
-}
-
-.cart-header button{
-
-    background:none;
-
-    border:none;
-
-    font-size:25px;
-
-    cursor:pointer;
-
-}
-.cart-footer{
-
-    margin-top:30px;
-
-    border-top:1px solid #ddd;
-
-    padding-top:20px;
-
-}
-
-.checkout-btn{
-
-    width:100%;
-
-    margin-top:15px;
+    padding:20px;
 
     background:#8B0000;
 
     color:white;
 
+}
+
+.cart-header button{
+
     border:none;
 
-    padding:15px;
+    background:none;
 
-    border-radius:8px;
+    color:white;
+
+    font-size:22px;
 
     cursor:pointer;
 
-    font-size:18px;
+}
+
+.cart-body{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:20px;
 
 }
 
@@ -350,22 +784,518 @@ nav ul li a{
 
     align-items:center;
 
+    padding:15px;
+
     margin-bottom:15px;
+
+    background:#f8f8f8;
+
+    border-radius:10px;
+
+}
+
+.cart-item h4{
+
+    color:#8B0000;
 
 }
 
 .remove-btn{
 
+    border:none;
+
     background:red;
 
     color:white;
 
-    border:none;
-
-    padding:6px 10px;
+    padding:8px 12px;
 
     border-radius:5px;
 
     cursor:pointer;
 
 }
+
+.cart-footer{
+
+    padding:20px;
+
+    border-top:1px solid #ddd;
+
+}
+
+.checkout-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    background:#ff9800;
+
+    color:white;
+
+    font-size:18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-top:15px;
+
+}
+
+.checkout-btn:hover{
+
+    background:#ff7b00;
+
+}
+
+/* ==========================================
+               FOOTER
+========================================== */
+
+footer{
+
+    background:#8B0000;
+
+    color:white;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+}
+
+footer h3{
+
+    margin-bottom:15px;
+
+}
+
+footer p{
+
+    margin:8px 0;
+
+}
+
+/* ==========================================
+           SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#8B0000;
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eee;
+
+}
+/* ==========================================
+           QUANTITY BUTTONS
+========================================== */
+
+.quantity-controls{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:10px;
+
+}
+
+.qty-btn{
+
+    width:35px;
+
+    height:35px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#8B0000;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.qty-btn:hover{
+
+    background:#a50000;
+
+    transform:scale(1.1);
+
+}
+
+.quantity{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    min-width:25px;
+
+    text-align:center;
+
+}
+
+/* ==========================================
+        BUTTON ANIMATIONS
+========================================== */
+
+button{
+
+    transition:all .3s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ==========================================
+          CARD ANIMATION
+========================================== */
+
+.food-card,
+.offer-card,
+.card,
+.review-card,
+.why-card{
+
+    transition:all .35s ease;
+
+}
+
+.food-card:hover,
+.offer-card:hover,
+.card:hover,
+.review-card:hover,
+.why-card:hover{
+
+    box-shadow:0 18px 35px rgba(0,0,0,.20);
+
+}
+
+/* ==========================================
+            INPUT FOCUS
+========================================== */
+
+input{
+
+    transition:.3s;
+
+}
+
+input:focus{
+
+    outline:none;
+
+    border:2px solid #ff9800;
+
+    box-shadow:0 0 10px rgba(255,152,0,.4);
+
+}
+
+/* ==========================================
+        NAVBAR STICKY EFFECT
+========================================== */
+
+.navbar{
+
+    backdrop-filter:blur(10px);
+
+}
+
+/* ==========================================
+          SECTION SPACING
+========================================== */
+
+.categories,
+.popular,
+.offers,
+.why-us,
+.reservation,
+.reviews,
+.contact{
+
+    animation:fadeUp .8s ease;
+
+}
+
+/* ==========================================
+           FADE ANIMATION
+========================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+            IMAGE EFFECT
+========================================== */
+
+.food-card img{
+
+    transition:.4s;
+
+}
+
+.food-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================================
+            MOBILE
+========================================== */
+
+@media(max-width:992px){
+
+.navbar{
+
+    padding:20px;
+
+    flex-direction:column;
+
+    height:auto;
+
+}
+
+.nav-links{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    margin:20px 0;
+
+}
+
+.hero{
+
+    padding:40px;
+
+}
+
+.hero h1{
+
+    font-size:42px;
+
+}
+
+.hero p{
+
+    font-size:20px;
+
+}
+
+.popular-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.category-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.offer-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.review-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.why-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.reservation-form{
+
+    grid-template-columns:1fr;
+
+}
+
+.reservation-form button{
+
+    grid-column:1;
+
+}
+
+.cart-sidebar{
+
+    width:100%;
+
+}
+
+}
+
+/* ==========================================
+            SMALL MOBILE
+========================================== */
+
+@media(max-width:600px){
+
+section{
+
+    padding:70px 20px;
+
+}
+
+.hero{
+
+    height:auto;
+
+    padding:120px 20px;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+
+}
+
+.category-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.popular-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.offer-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.review-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.why-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+}
+
+.nav-links{
+
+    gap:15px;
+
+}
+
+.nav-links a{
+
+    font-size:16px;
+
+}
+
+.cart-btn{
+
+    margin-top:15px;
+
+    width:100%;
+
+}
+
+.food-card{
+
+    margin:auto;
+
+}
+
+}
+
+/* ==========================================
+        END OF FILE
+========================================== */

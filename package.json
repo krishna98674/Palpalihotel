@@ -1,15 +1,15 @@
 {
   "name": "palpalihotel",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Palpali Hotel Management System",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^5.2.1"
-  },
-  "description": ""
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.5"
+  }
 }

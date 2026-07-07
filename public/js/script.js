@@ -1,30 +1,58 @@
+// =======================================
+// PALPALI HOTEL
+// SHOPPING CART SYSTEM
+// =======================================
+
+// Cart Data
+let cartItems = [];
+
+// Total Quantity
 let cartCount = 0;
 
+// HTML Elements
 const cartButton = document.getElementById("cartButton");
-const orderButtons = document.querySelectorAll(".order-btn");
-
 const cartSidebar = document.getElementById("cartSidebar");
 const closeCart = document.getElementById("closeCart");
 const cartBody = document.getElementById("cartBody");
+const totalPrice = document.getElementById("totalPrice");
 
-let cartItems = [];
+const orderButtons = document.querySelectorAll(".order-btn");
 
-// Add item to cart
+// =======================================
+// ADD TO CART
+// =======================================
+
 orderButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
         const itemName = button.dataset.name;
+
         const itemPrice = Number(button.dataset.price);
 
-        cartItems.push({
-            name: itemName,
-            price: itemPrice
-        });
+        const existingItem = cartItems.find(item => item.name === itemName);
+
+        if(existingItem){
+
+            existingItem.quantity++;
+
+        }else{
+
+            cartItems.push({
+
+                name:itemName,
+
+                price:itemPrice,
+
+                quantity:1
+
+            });
+
+        }
 
         cartCount++;
 
-        cartButton.textContent = `🛒 Cart (${cartCount})`;
+        updateCartButton();
 
         renderCart();
 
@@ -32,28 +60,63 @@ orderButtons.forEach(button => {
 
 });
 
-// Display cart items
-function renderCart() {
+// =======================================
+// UPDATE CART BUTTON
+// =======================================
 
-    cartBody.innerHTML = "";
+function updateCartButton(){
 
-    let total = 0;
+    cartButton.textContent = `🛒 Cart (${cartCount})`;
 
-    if (cartItems.length === 0) {
+}
 
-        cartBody.innerHTML = "<p>Your cart is empty.</p>";
+// =======================================
+// OPEN CART
+// =======================================
 
-        document.getElementById("totalPrice").textContent = "Total: Rs. 0";
+cartButton.addEventListener("click",()=>{
+
+    cartSidebar.classList.add("active");
+
+});
+
+// =======================================
+// CLOSE CART
+// =======================================
+
+closeCart.addEventListener("click",()=>{
+
+    cartSidebar.classList.remove("active");
+
+});
+
+// =======================================
+// RENDER CART
+// =======================================
+
+function renderCart(){
+
+    cartBody.innerHTML="";
+
+    if(cartItems.length===0){
+
+        cartBody.innerHTML="<p>Your cart is empty.</p>";
+
+        totalPrice.textContent="Total : Rs. 0";
 
         return;
 
     }
 
-    cartItems.forEach((item, index) => {
+    let grandTotal=0;
 
-        total += item.price;
+    cartItems.forEach((item,index)=>{
 
-        cartBody.innerHTML += `
+        const subtotal=item.price*item.quantity;
+
+        grandTotal+=subtotal;
+
+        cartBody.innerHTML+=`
 
         <div class="cart-item">
 
@@ -63,10 +126,48 @@ function renderCart() {
 
                 <p>Rs. ${item.price}</p>
 
+                <div class="quantity-controls">
+
+                    <button class="qty-btn" onclick="decreaseQuantity(${index})">
+
+                    -
+
+                    </button>
+
+                    <span class="quantity">
+
+                    ${item.quantity}
+
+                    </span>
+
+                    <button class="qty-btn" onclick="increaseQuantity(${index})">
+
+                    +
+
+                    </button>
+
+                </div>
+
+                <p>
+
+                <strong>
+
+                Rs. ${subtotal}
+
+                </strong>
+
+                </p>
+
             </div>
 
-            <button class="remove-btn" onclick="removeItem(${index})">
-                ❌
+            <button
+
+            class="remove-btn"
+
+            onclick="removeItem(${index})">
+
+            ❌
+
             </button>
 
         </div>
@@ -75,38 +176,200 @@ function renderCart() {
 
     });
 
-    document.getElementById("totalPrice").textContent =
-        `Total: Rs. ${total}`;
+    totalPrice.textContent=`Total : Rs. ${grandTotal}`;
 
 }
+// =======================================
+// INCREASE QUANTITY
+// =======================================
 
-// Remove item
-function removeItem(index) {
+function increaseQuantity(index){
 
-    cartItems.splice(index, 1);
+    cartItems[index].quantity++;
 
-    cartCount--;
+    cartCount++;
 
-    if (cartCount < 0) {
-        cartCount = 0;
-    }
-
-    cartButton.textContent = `🛒 Cart (${cartCount})`;
+    updateCartButton();
 
     renderCart();
 
+    saveCart();
+
 }
 
-// Open cart
-cartButton.addEventListener("click", () => {
+// =======================================
+// DECREASE QUANTITY
+// =======================================
 
-    cartSidebar.classList.add("active");
+function decreaseQuantity(index){
+
+    cartItems[index].quantity--;
+
+    cartCount--;
+
+    if(cartItems[index].quantity<=0){
+
+        cartItems.splice(index,1);
+
+    }
+
+    updateCartButton();
+
+    renderCart();
+
+    saveCart();
+
+}
+
+// =======================================
+// REMOVE ITEM
+// =======================================
+
+function removeItem(index){
+
+    cartCount -= cartItems[index].quantity;
+
+    cartItems.splice(index,1);
+
+    updateCartButton();
+
+    renderCart();
+
+    saveCart();
+
+}
+
+// =======================================
+// SAVE CART
+// =======================================
+
+function saveCart(){
+
+    localStorage.setItem(
+
+        "palpaliCart",
+
+        JSON.stringify(cartItems)
+
+    );
+
+}
+
+// =======================================
+// LOAD CART
+// =======================================
+
+function loadCart(){
+
+    const savedCart = localStorage.getItem("palpaliCart");
+
+    if(savedCart){
+
+        cartItems = JSON.parse(savedCart);
+
+        cartCount = 0;
+
+        cartItems.forEach(item=>{
+
+            cartCount += item.quantity;
+
+        });
+
+        updateCartButton();
+
+        renderCart();
+
+    }
+
+}
+
+loadCart();
+
+// =======================================
+// CHECKOUT
+// =======================================
+
+const checkoutButton = document.querySelector(".checkout-btn");
+
+checkoutButton.addEventListener("click",()=>{
+
+    if(cartItems.length===0){
+
+        alert("Your cart is empty!");
+
+        return;
+
+    }
+
+    alert("Thank you for your order! 🎉");
+
+    cartItems=[];
+
+    cartCount=0;
+
+    updateCartButton();
+
+    renderCart();
+
+    saveCart();
 
 });
 
-// Close cart
-closeCart.addEventListener("click", () => {
+// =======================================
+// RESERVATION FORM
+// =======================================
 
-    cartSidebar.classList.remove("active");
+
+const reservationForm = document.getElementById("reservationForm");
+
+reservationForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const reservationData = {
+
+        customer_name: document.getElementById("customerName").value,
+
+        email: document.getElementById("email").value,
+
+        phone: document.getElementById("phone").value,
+
+        reservation_date: document.getElementById("reservationDate").value,
+
+        reservation_time: document.getElementById("reservationTime").value,
+
+        guests: document.getElementById("guests").value
+
+    };
+
+    try {
+
+        const response = await fetch("/api/reservations", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify(reservationData)
+
+        });
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        reservationForm.reset();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong!");
+
+    }
 
 });

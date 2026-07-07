@@ -4,148 +4,616 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Palpali Hotel</title>
 
     <link rel="stylesheet" href="css/style.css">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<nav>
+<!-- ===========================
+        NAVBAR
+============================ -->
+
+<nav class="navbar">
 
     <div class="logo">
-        Palpali Hotel
+
+        🍽️ Palpali Hotel
+
     </div>
 
-    <ul>
+    <ul class="nav-links">
 
-        <li><a href="#">Home</a></li>
+        <li><a href="#home">Home</a></li>
 
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Offers</a></li>
-        <li><a href="#">Reservation</a></li>
+        <li><a href="#menu">Menu</a></li>
 
-        <li><a href="#">About</a></li>
+        <li><a href="#offers">Offers</a></li>
 
-        <li><a href="#">Contact</a></li>
+        <li><a href="#reservation">Reservation</a></li>
+
+        <li><a href="#about">About</a></li>
+
+        <li><a href="#contact">Contact</a></li>
 
     </ul>
 
-<button class="cart-btn" id="cartButton">
-    🛒 Cart (0)
-</button>
+    <button id="cartButton" class="cart-btn">
+
+        🛒 Cart (0)
+
+    </button>
+
 </nav>
 
-<section class="hero">
+<!-- ===========================
+        HERO
+============================ -->
 
-    <h1>Authentic Nepali & Multi-Cuisine Restaurant</h1>
+<section class="hero" id="home">
 
-    <p>
-        Experience delicious food made with fresh ingredients.
-    </p>
+    <div class="hero-content">
 
-    <div class="buttons">
+        <h1>
 
-        <button>Order Now</button>
+            Welcome To Palpali Hotel
 
-        <button>View Menu</button>
+        </h1>
+
+        <p>
+
+            Fresh Food • Fast Service • Best Experience
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn">
+
+                Order Now
+
+            </button>
+
+            <button class="secondary-btn">
+
+                View Menu
+
+            </button>
+
+        </div>
 
     </div>
 
 </section>
+
+<!-- ===========================
+        CATEGORIES
+============================ -->
+
 <section class="categories">
-<h2>Explore Our Menu</h2>
-<p>Choose your favorite food category</p>
-<div class="category-grid">
-<div class="cart">
-   <div class="icon">🍕</div>
-<h3>Pizza</h3>
-</div>
 
-<div class="cart">
-   <div class="icon">🍔</div>
-<h3>Burger</h3>
-</div>
+    <h2>
 
-<section class="popular">
+        Explore Our Menu
 
-    <h2>Popular Dishes</h2>
-    <p>Our customers' favorite meals</p>
+    </h2>
+
+    <p>
+
+        Choose your favourite category
+
+    </p>
+
+    <div class="category-grid">
+
+        <div class="card">
+
+            <div class="icon">🍕</div>
+
+            <h3>Pizza</h3>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🍔</div>
+
+            <h3>Burger</h3>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🍜</div>
+
+            <h3>Chowmein</h3>
+
+        </div>
+
+        <div class="card">
+
+            <div class="icon">🥟</div>
+
+            <h3>Momo</h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+      POPULAR DISHES
+============================ -->
+
+<section class="popular" id="menu">
+
+    <h2>
+
+        Popular Dishes
+
+    </h2>
+
+    <p>
+
+        Most Ordered Foods
+
+    </p>
 
     <div class="popular-grid">
 
+        <!-- CARD -->
+
         <div class="food-card">
-            <div class="food-image">🍕</div>
+
+            <img src="images/pizza.jpg" alt="Pizza">
+
             <h3>Chicken Pizza</h3>
-            <p class="price">Rs. 750</p>
-<button class="order-btn" data-name="Chicken Pizza" data-price="750">
-    Order Now
-</button>
+
+            <p>
+
+                Cheese loaded pizza with grilled chicken.
+
+            </p>
+
+            <h4>Rs. 750</h4>
+
+            <button
+                class="order-btn"
+                data-name="Chicken Pizza"
+                data-price="750">
+
+                Order Now
+
+            </button>
+
         </div>
 
+        <!-- CARD -->
+
         <div class="food-card">
-            <div class="food-image">🥟</div>
+
+            <img src="images/momo.jpg" alt="Momo">
+
             <h3>Steam Momo</h3>
-            <p class="price">Rs. 180</p>
-<button class="order-btn" data-name="Steam Momo" data-price="180">
-    Order Now
-</button>
+
+            <p>
+
+                Fresh handmade chicken momo.
+
+            </p>
+
+            <h4>Rs.180</h4>
+
+            <button
+                class="order-btn"
+                data-name="Steam Momo"
+                data-price="180">
+
+                Order Now
+
+            </button>
+
         </div>
 
+        <!-- CARD -->
+
         <div class="food-card">
-            <div class="food-image">🍗</div>
+
+            <img src="images/burger.jpg" alt="Burger">
+
+            <h3>Cheese Burger</h3>
+
+            <p>
+
+                Crispy chicken burger with cheese.
+
+            </p>
+
+            <h4>Rs.350</h4>
+
+            <button
+                class="order-btn"
+                data-name="Cheese Burger"
+                data-price="350">
+
+                Order Now
+
+            </button>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="food-card">
+
+            <img src="images/chowmein.jpg" alt="Chowmein">
+
+            <h3>Chicken Chowmein</h3>
+
+            <p>
+
+                Fried noodles with vegetables.
+
+            </p>
+
+            <h4>Rs.250</h4>
+
+            <button
+                class="order-btn"
+                data-name="Chicken Chowmein"
+                data-price="250">
+
+                Order Now
+
+            </button>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="food-card">
+
+            <img src="images/biryani.jpg" alt="Biryani">
+
             <h3>Chicken Biryani</h3>
-            <p class="price">Rs. 420</p>
-<button class="order-btn" data-name="Chicken Biryani" data-price="420">
-    Order Now
-</button>        </div>
-       <div class="food-card">
-       <div class="food-image">🍔</div>
-       <h3> Cheese Burger </h3>
-      <p class="price">Rs. 350</p>
-<button class="order-btn" data-name="Cheese Burger" data-price="350">
-    Order Now
-</button>
+
+            <p>
+
+                Delicious Hyderabadi chicken biryani.
+
+            </p>
+
+            <h4>Rs.420</h4>
+
+            <button
+                class="order-btn"
+                data-name="Chicken Biryani"
+                data-price="420">
+
+                Order Now
+
+            </button>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="food-card">
+
+            <img src="images/thakali.jpg" alt="Thakali">
+
+            <h3>Thakali Khana</h3>
+
+            <p>
+
+                Authentic Nepali Thakali Set.
+
+            </p>
+
+            <h4>Rs.550</h4>
+
+            <button
+                class="order-btn"
+                data-name="Thakali Khana"
+                data-price="550">
+
+                Order Now
+
+            </button>
+
+        </div>
 
     </div>
-<div class="food-card">
-       <div class="food-image">🍜</div> 
-       <h3> Chicken Chowmein </h3>
-      <p class="price">Rs. 250</p>
-<button class="order-btn" data-name="Chicken Chowmein" data-price="250">
-    Order Now
-</button>
-</div>
+
+</section>
+<!-- ===========================
+        TODAY'S OFFERS
+============================ -->
+
+<section class="offers" id="offers">
+
+    <h2>Today's Special Offers</h2>
+
+    <p>Don't miss today's delicious deals!</p>
+
+    <div class="offer-grid">
+
+        <div class="offer-card">
+
+            <h3>🍕 Family Pizza Combo</h3>
+
+            <p>2 Large Pizzas + Cold Drinks</p>
+
+            <h4>Rs. 1299</h4>
+
+        </div>
+
+        <div class="offer-card">
+
+            <h3>🥟 Momo Festival</h3>
+
+            <p>Buy 2 Plates Get 1 Free</p>
+
+            <h4>Only Today</h4>
+
+        </div>
+
+        <div class="offer-card">
+
+            <h3>🍔 Burger Combo</h3>
+
+            <p>Burger + Fries + Coke</p>
+
+            <h4>Rs. 499</h4>
+
+        </div>
 
     </div>
 
 </section>
 
-<div id="cartSidebar" class="cart-sidebar">
+<!-- ===========================
+      WHY CHOOSE US
+============================ -->
 
-<div class="cart-body" id="cartBody"></div>
+<section class="why-us">
 
-<div class="cart-footer">
+    <h2>Why Choose Palpali Hotel?</h2>
 
-    <h3 id="totalPrice">Total: Rs. 0</h3>
+    <div class="why-grid">
 
-    <button class="checkout-btn">
-        Checkout
-    </button>
+        <div class="why-card">
 
-</div>
-    <div class="cart-header">
-        <h2>Shopping Cart</h2>
-        <button id="closeCart">✖</button>
+            <div class="why-icon">👨‍🍳</div>
+
+            <h3>Expert Chefs</h3>
+
+            <p>Experienced chefs preparing fresh meals every day.</p>
+
+        </div>
+
+        <div class="why-card">
+
+            <div class="why-icon">🥗</div>
+
+            <h3>Fresh Ingredients</h3>
+
+            <p>Only fresh vegetables and premium quality meat.</p>
+
+        </div>
+
+        <div class="why-card">
+
+            <div class="why-icon">🚚</div>
+
+            <h3>Fast Delivery</h3>
+
+            <p>Quick delivery within the city.</p>
+
+        </div>
+
+        <div class="why-card">
+
+            <div class="why-icon">⭐</div>
+
+            <h3>Top Rated</h3>
+
+            <p>Trusted by hundreds of happy customers.</p>
+
+        </div>
+
     </div>
 
+</section>
+
+<!-- ===========================
+        RESERVATION
+============================ -->
+
+<section class="reservation" id="reservation">
+
+    <h2>Reserve Your Table</h2>
+
+    <p>Book your table before visiting us.</p>
+
+<form class="reservation-form" id="reservationForm">
+<input type="text" id="customerName" placeholder="Your Name" required>
+
+<input type="email" id="email" placeholder="Email" required>
+
+<input type="text" id="phone" placeholder="Phone Number" required>
+
+<input type="date" id="reservationDate" required>
+
+<input type="time" id="reservationTime" required>
+
+<input type="number" id="guests" placeholder="Guests" required>
+
+<button type="submit">
+    Reserve Now
+</button>
+    </form>
+
+</section>
+
+<!-- ===========================
+      CUSTOMER REVIEWS
+============================ -->
+
+<section class="reviews">
+
+    <h2>Customer Reviews</h2>
+
+    <div class="review-grid">
+
+        <div class="review-card">
+
+            <h3>⭐⭐⭐⭐⭐</h3>
+
+            <p>
+
+                Amazing food and very friendly staff.
+
+            </p>
+
+            <h4>- Krishna</h4>
+
+        </div>
+
+        <div class="review-card">
+
+            <h3>⭐⭐⭐⭐⭐</h3>
+
+            <p>
+
+                Best momo in the city!
+
+            </p>
+
+            <h4>- Ram</h4>
+
+        </div>
+
+        <div class="review-card">
+
+            <h3>⭐⭐⭐⭐⭐</h3>
+
+            <p>
+
+                Beautiful environment and delicious food.
+
+            </p>
+
+            <h4>- Sita</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        CONTACT
+============================ -->
+
+<section class="contact" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>
+
+        📍 Tansen, Palpa, Nepal
+
+    </p>
+
+    <p>
+
+        📞 +977-9800000000
+
+    </p>
+
+    <p>
+
+        📧 info@palpalihotel.com
+
+    </p>
+
+</section>
+
+<!-- ===========================
+        CART SIDEBAR
+============================ -->
+
+<div class="cart-sidebar" id="cartSidebar">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <button id="closeCart">✖</button>
+
+    </div>
+
+    <div
+        class="cart-body"
+        id="cartBody">
+
+        <p>Your cart is empty.</p>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <h3 id="totalPrice">
+
+            Total: Rs. 0
+
+        </h3>
+
+        <button class="checkout-btn">
+
+            Checkout
+
+        </button>
+
+    </div>
 
 </div>
-    <script src="js/script.js"></script>
+
+<!-- ===========================
+        FOOTER
+============================ -->
+
+<footer>
+
+    <h3>Palpali Hotel</h3>
+
+    <p>
+
+        Serving Happiness Since 2026 ❤️
+
+    </p>
+
+    <p>
+
+        © 2026 Palpali Hotel. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+<script src="js/script.js"></script>
 
 </body>
 
