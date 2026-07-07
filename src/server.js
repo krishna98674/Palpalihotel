@@ -7,6 +7,8 @@ require("./database/db");
 
 const reservationRoutes = require("./routes/reservationRoutes");
 
+const orderRoutes = require("./routes/orderRoutes");
+
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -18,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.use("/api/reservations", reservationRoutes);
+
+app.use("/api/orders", orderRoutes);
 
 app.get("/", (req, res) => {
 

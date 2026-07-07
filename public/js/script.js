@@ -17,7 +17,7 @@ const cartBody = document.getElementById("cartBody");
 const totalPrice = document.getElementById("totalPrice");
 
 const orderButtons = document.querySelectorAll(".order-btn");
-
+const checkoutButton = document.querySelector(".checkout-btn");
 // =======================================
 // ADD TO CART
 // =======================================
@@ -289,11 +289,9 @@ loadCart();
 // CHECKOUT
 // =======================================
 
-const checkoutButton = document.querySelector(".checkout-btn");
-
-checkoutButton.addEventListener("click",()=>{
-
-    if(cartItems.length===0){
+checkoutButton.addEventListener("click", async () => {
+alert("Order Created ");
+    if (cartItems.length === 0) {
 
         alert("Your cart is empty!");
 
@@ -301,17 +299,69 @@ checkoutButton.addEventListener("click",()=>{
 
     }
 
-    alert("Thank you for your order! 🎉");
+    const customerName = prompt("Enter Your Name");
 
-    cartItems=[];
+    if (!customerName) {
 
-    cartCount=0;
+        return;
 
-    updateCartButton();
+    }
 
-    renderCart();
+    let total = 0;
 
-    saveCart();
+    cartItems.forEach(item => {
+
+        total += item.price * item.quantity;
+
+    });
+
+    const orderData = {
+
+        customer_name: customerName,
+
+        total_amount: total,
+
+        items: cartItems
+
+    };
+
+    try {
+
+        const response = await fetch("/api/orders", {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type": "application/json"
+
+            },
+
+            body: JSON.stringify(orderData)
+
+        });
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        cartItems = [];
+
+        cartCount = 0;
+
+        updateCartButton();
+
+        renderCart();
+
+        saveCart();
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert("Order Failed!");
+
+    }
 
 });
 

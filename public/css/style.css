@@ -1295,7 +1295,17 @@ section{
 }
 
 }
+   .cart-footer{
+    position: sticky;
+    bottom: 0;
+    background: white;
+    z-index: 9999;
+}
 
+.checkout-btn{
+    position: relative;
+    z-index: 10000;
+}
 /* ==========================================
         END OF FILE
 ========================================== */
